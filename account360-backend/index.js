@@ -16,7 +16,10 @@ const app = express();
 dotenv.config();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: "https://account360-project.vercel.app", // use your actual Vercel domain
+  credentials: true,
+}));
 
 // Increase payload size limit for profilePic uploads (base64 images)
 app.use(express.json({ limit: '5mb' }));
