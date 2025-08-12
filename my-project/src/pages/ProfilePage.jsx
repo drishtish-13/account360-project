@@ -39,7 +39,7 @@ export default function Profile() {
     }
     setLoading(true);
     try {
-      const res = await axios.get('http://localhost:3001/api/profile', {
+      const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/profile`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const profileData = res.data;
@@ -84,7 +84,7 @@ export default function Profile() {
     setLoading(true);
     try {
       const res = await axios.put(
-        'http://localhost:3001/api/profile',
+        `${process.env.REACT_APP_BACKEND_URL}/api/profile`,
         { ...formData, profilePic },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -115,7 +115,7 @@ export default function Profile() {
   const handleDelete = async () => {
     setLoading(true);
     try {
-      await axios.delete('http://localhost:3001/api/profile', {
+      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/profile`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       localStorage.clear();

@@ -32,7 +32,7 @@ const token = paramToken || queryToken;
 
     setLoading(true);
     try {
-      const res = await axios.post(`http://localhost:3001/api/auth/reset-password/${token}`, { password });
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/reset-password/${token}`, { password });
       setMessage(res.data.message);
       setTimeout(() => navigate('/'), 2000);
     } catch (err) {
