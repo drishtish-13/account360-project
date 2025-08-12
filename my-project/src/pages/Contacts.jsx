@@ -50,7 +50,7 @@ export default function Contacts() {
   const fetchContacts = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/contacts`);
+      const res = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/contacts`);
       setContacts(res.data);
     } catch (err) {
       console.error(err);
@@ -117,9 +117,9 @@ export default function Contacts() {
     setLoading(true);
     try {
       if (editingId) {
-        await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/contacts/${editingId}`, formData);
+        await axios.put(`${process.env.REACT_APP_API_BASE_URL}/api/contacts/${editingId}`, formData);
       } else {
-        await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/contacts`, formData);
+        await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/contacts`, formData);
       }
 
       fetchContacts();
@@ -143,7 +143,7 @@ export default function Contacts() {
   const handleDelete = async (id) => {
     setLoading(true);
     try {
-      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/contacts/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/api/contacts/${id}`);
       fetchContacts();
     } catch (err) {
       console.error('Delete failed:', err);

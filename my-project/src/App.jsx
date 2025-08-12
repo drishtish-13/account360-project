@@ -38,7 +38,7 @@ const AppLayout = ({ children }) => {
 
   const handleSendMessage = async (input) => {
   try {
-    const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/ai/ask`, { question: input });
+    const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/ai/ask`, { question: input });
     return response.data.answer;
   } catch (error) {
     console.error('❌ Error sending message to AI:', error);

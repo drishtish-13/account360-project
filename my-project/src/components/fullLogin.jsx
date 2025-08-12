@@ -76,8 +76,8 @@ export default function FullLogin({ onLoginSuccess }) {
 
     try {
       const url = isSignup
-        ? `${process.env.REACT_APP_BACKEND_URL}/api/auth/register`
-        : `${process.env.REACT_APP_BACKEND_URL}/api/auth/login`;
+        ? `${process.env.REACT_APP_API_BASE_URL}/api/auth/register`
+        : `${process.env.REACT_APP_API_BASE_URL}/api/auth/login`;
 
       const payload = isSignup
         ? { name, email, password, contact, profilePic }
@@ -126,7 +126,7 @@ export default function FullLogin({ onLoginSuccess }) {
         <button
           className="bg-blue-500 text-white px-4 py-2 rounded flex items-center justify-center gap-2 hover:bg-blue-600 w-full"
           onClick={() => {
-            window.location.href = `${process.env.REACT_APP_BACKEND_URL}/api/auth/google`;
+            window.location.href = `${process.env.REACT_APP_API_BASE_URL}/api/auth/google`;
           }}
         >
           <img src="https://www.google.com/favicon.ico" alt="G" className="w-5 h-5" />
