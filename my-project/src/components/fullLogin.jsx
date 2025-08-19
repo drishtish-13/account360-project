@@ -86,7 +86,7 @@ export default function FullLogin({ onLoginSuccess }) {
       const response = await axios.post(url, payload);
 
       if (isSignup) {
-        alert('✅ Registration successful! Please check your email and verify before logging in.');
+        setInfoMessage('✅ Registration successful! Please check your email and verify before logging in.');
         setIsSignup(false);
       } else {
         localStorage.setItem('token', response.data.token);
